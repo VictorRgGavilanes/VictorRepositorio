@@ -1,0 +1,58 @@
+COMO AGREGAR MAS ESPACIO DE HARD DISK EN ALMALINUX
+====================================================
+
+df -h
+////////////
+Aqui te asoma las particiones llenas
+////////////
+lsdlk
+
+fdisk /dev/nvme0n2
+..
+n
+p
+3
+enter
+enter
+(comand m): w
+..
+
+fdisk -l
+pvcreate /dev/nvme0n2p1
+
+vgdisplay
+
+
+vgdisplay almalinux | grep "Free"
+vgextend almalinu /dev/nvme0n2pi
+
+vgdisplay almalinux | grep "Free"
+lvdisplay 
+
+lvextend -L+20G /dev/almalinux/var
+resize2fs /dev/almalinux/var
+df -h
+
+
+
+--------------
+Investigacion de OPENSTART
+=LEVANTAR INFRAESTRUCTURA de red completa
+-ROUTER
+-CONTAINERS
+-LA NUBE
+===================
+Pueden usar OPENnet
+openmeta
+20/11/2023
+=========================
+
+
+
+
+
+
+
+
+
+
